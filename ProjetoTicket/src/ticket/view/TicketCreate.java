@@ -265,7 +265,7 @@ public class TicketCreate extends javax.swing.JFrame {
         this.chamado.setEmail(txtEmail.getText());
         this.chamado.setCargo(jcbCargo.getSelectedItem().toString());
         this.chamado.setTipo(jcbTipo.getSelectedItem().toString());
-        this.chamado.setTipo(txtUnidade.getText());
+        this.chamado.setUnidade(txtUnidade.getText());
         this.chamado.setAssunto((txtAssunto.getText()));
         this.chamado.setTexto(txtTexto.getText());
         
@@ -285,8 +285,8 @@ public class TicketCreate extends javax.swing.JFrame {
         + "Nome: " + this.chamado.getNome() + "\n"
         + "E-mail: " + this.chamado.getEmail() + "\n"
         + "Cargo: " + this.chamado.getCargo() + "\n"
-        + "Tipo: " + this.chamado.getTipo() + "\n"
         + "Unidade Escolas: " + this.chamado.getUnidade() + "\n"
+        + "Tipo: " + this.chamado.getTipo() + "\n"
         + "------------" + "\n"
         + "Texto: " + this.chamado.getTexto() + "\n"
         + "------------" + "\n");

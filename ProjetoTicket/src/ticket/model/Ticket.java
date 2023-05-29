@@ -15,7 +15,7 @@ public class Ticket {
     private String texto;
     
     public Ticket(){
-        
+      
     }
     
     public Ticket(String nome, String email, String cargo, String unidade, String tipo, String assunto, String texto){

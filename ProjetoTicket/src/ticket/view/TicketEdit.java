@@ -80,6 +80,12 @@ public class TicketEdit extends javax.swing.JFrame {
 
         jLabel7.setText("ASSUNTO:");
 
+        txtAssunto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAssuntoActionPerformed(evt);
+            }
+        });
+
         btnDeletar.setText("DELETAR");
         btnDeletar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -223,6 +229,10 @@ public class TicketEdit extends javax.swing.JFrame {
     private void btnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDeletarActionPerformed
+
+    private void txtAssuntoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAssuntoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAssuntoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Logo;
