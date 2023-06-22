@@ -2,6 +2,7 @@ package com.ticket.view;
 
 import com.ticket.model.Ticket;
 import com.ticket.utils.EntityUtils;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public class TicketsCreate extends javax.swing.JFrame {
@@ -11,6 +12,8 @@ public class TicketsCreate extends javax.swing.JFrame {
     public TicketsCreate() {
         initComponents();
         this.chamado = new Ticket();
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/images/TicketIconTest.png")).getImage());
     }
 
     @SuppressWarnings("unchecked")

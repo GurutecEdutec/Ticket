@@ -11,6 +11,7 @@ public class TicketsEdit extends javax.swing.JFrame {
     public TicketsEdit() {
         initComponents();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/images/TicketIconTest.png")).getImage());
     }
 
     @SuppressWarnings("unchecked")
