@@ -24,6 +24,8 @@ public class TicketsScreen extends javax.swing.JFrame {
 
         this.populateTable();
         //this.updateBoxSearch();
+        
+        this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/images/TicketIconTest.png")).getImage());
     }
     
     private String getSelectedTicketCode() {

@@ -7,6 +7,8 @@ public class LoadingScreen extends javax.swing.JFrame {
 
     public LoadingScreen() {
         initComponents();
+        
+        this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/images/TicketIconTest.png")).getImage());
     }
 
     @SuppressWarnings("unchecked")
