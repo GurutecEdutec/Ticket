@@ -14,14 +14,16 @@ import javax.swing.table.DefaultTableModel;
 public class TicketsScreen extends javax.swing.JFrame {
     private final TicketsCreate creationModal;
     private final TicketsEdit editionModal;
+    private final TicketsView viewModal;
     private Ticket ticketSelected;
     private List<Ticket> fetchedTickets;
     private List<Ticket> tableResults;
 
-    public TicketsScreen(TicketsCreate creationModal, TicketsEdit editionModal) {
+    public TicketsScreen(TicketsCreate creationModal, TicketsEdit editionModal, TicketsView viewModal) {
         initComponents();
         this.creationModal = creationModal;
         this.editionModal = editionModal;
+        this.viewModal = viewModal;
 
         this.populateTable();
         this.updateBoxSearch();
@@ -123,6 +125,11 @@ public class TicketsScreen extends javax.swing.JFrame {
         });
 
         btnView.setText("VISUALIZAR");
+        btnView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -174,7 +181,7 @@ public class TicketsScreen extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                     .addContainerGap(72, Short.MAX_VALUE)
-                    .addComponent(spTicket, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spTicket, javax.swing.GroupLayout.DEFAULT_SIZE, 507, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
@@ -245,6 +252,19 @@ public class TicketsScreen extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_lblSearchMouseClicked
+
+    private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
+        // TODO add your handling code here:
+        if (TicketTable.getSelectedColumnCount()!= 0
+            && getSelectedTicketCode() != null && getSelectedTicketValue() != null) {
+
+            this.viewModal.populateData(ticketSelected);
+            this.viewModal.setVisible(true);
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Nada foi selecionado.", null, JOptionPane.ERROR_MESSAGE, null);
+        }
+    }//GEN-LAST:event_btnViewActionPerformed
 
     private void fetchTableResults(/*int page, int maxResults*/) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("ticket");
