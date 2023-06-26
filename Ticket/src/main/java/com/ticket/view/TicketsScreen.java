@@ -14,14 +14,16 @@ import javax.swing.table.DefaultTableModel;
 public class TicketsScreen extends javax.swing.JFrame {
     private final TicketsCreate creationModal;
     private final TicketsEdit editionModal;
+    private final TicketsView viewModal;
     private Ticket ticketSelected;
     private List<Ticket> fetchedTickets;
     private List<Ticket> tableResults;
 
-    public TicketsScreen(TicketsCreate creationModal, TicketsEdit editionModal) {
+    public TicketsScreen(TicketsCreate creationModal, TicketsEdit editionModal, TicketsView viewModal) {
         initComponents();
         this.creationModal = creationModal;
         this.editionModal = editionModal;
+        this.viewModal = viewModal;
 
         this.populateTable();
         this.updateBoxSearch();
@@ -54,6 +56,7 @@ public class TicketsScreen extends javax.swing.JFrame {
         btnEdit = new javax.swing.JButton();
         lblTítulo = new javax.swing.JLabel();
         btnUpdate = new javax.swing.JButton();
+        btnView = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -121,27 +124,35 @@ public class TicketsScreen extends javax.swing.JFrame {
             }
         });
 
+        btnView.setText("VISUALIZAR");
+        btnView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(lblTítulo))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(boxSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblSearch)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                        .addComponent(btnUpdate)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                .addGap(26, 26, 26)
+                .addComponent(boxSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblSearch)
+                .addGap(26, 26, 26)
+                .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 29, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(lblTítulo)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
@@ -159,7 +170,8 @@ public class TicketsScreen extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
                             .addComponent(btnCreate)
                             .addComponent(btnEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnUpdate)))
+                            .addComponent(btnUpdate)
+                            .addComponent(btnView)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(2, 2, 2)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,7 +181,7 @@ public class TicketsScreen extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                     .addContainerGap(72, Short.MAX_VALUE)
-                    .addComponent(spTicket, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spTicket, javax.swing.GroupLayout.DEFAULT_SIZE, 507, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
@@ -241,6 +253,19 @@ public class TicketsScreen extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_lblSearchMouseClicked
 
+    private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
+        // TODO add your handling code here:
+        if (TicketTable.getSelectedColumnCount()!= 0
+            && getSelectedTicketCode() != null && getSelectedTicketValue() != null) {
+
+            this.viewModal.populateData(ticketSelected);
+            this.viewModal.setVisible(true);
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Nada foi selecionado.", null, JOptionPane.ERROR_MESSAGE, null);
+        }
+    }//GEN-LAST:event_btnViewActionPerformed
+
     private void fetchTableResults(/*int page, int maxResults*/) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("ticket");
         EntityManager em = emf.createEntityManager();
@@ -285,6 +310,7 @@ public class TicketsScreen extends javax.swing.JFrame {
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JButton btnView;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblSearch;
     private javax.swing.JLabel lblTítulo;

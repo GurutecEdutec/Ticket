@@ -96,6 +96,7 @@ public class LoadingScreen extends javax.swing.JFrame {
         
         TicketsCreate creationModal = new TicketsCreate();
         TicketsEdit editionModal = new TicketsEdit();
+        TicketsView viewModal = new TicketsView();
         LoadingScreen loading = new LoadingScreen();
         loading.setVisible(true);
 
@@ -107,7 +108,7 @@ public class LoadingScreen extends javax.swing.JFrame {
             }
             loading.dispose();
 
-            TicketsScreen inicial = new TicketsScreen(creationModal, editionModal);
+            TicketsScreen inicial = new TicketsScreen(creationModal, editionModal, viewModal);
             inicial.setVisible(true);
 
         } catch (InterruptedException ex) {
