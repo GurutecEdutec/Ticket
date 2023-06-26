@@ -23,10 +23,10 @@ public class LoadingScreen extends javax.swing.JFrame {
 
         jpFundo.setPreferredSize(new java.awt.Dimension(640, 320));
 
-        jpbLoading.setForeground(new java.awt.Color(153, 153, 153));
+        jpbLoading.setForeground(new java.awt.Color(51, 51, 51));
         jpbLoading.setToolTipText("");
-
-        lblLoading.setText("0");
+        jpbLoading.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jpbLoading.setStringPainted(true);
 
         javax.swing.GroupLayout jpFundoLayout = new javax.swing.GroupLayout(jpFundo);
         jpFundo.setLayout(jpFundoLayout);
@@ -52,7 +52,7 @@ public class LoadingScreen extends javax.swing.JFrame {
                 .addGroup(jpFundoLayout.createSequentialGroup()
                     .addGap(246, 246, 246)
                     .addComponent(lblLoading)
-                    .addContainerGap(247, Short.MAX_VALUE)))
+                    .addContainerGap(263, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -103,7 +103,7 @@ public class LoadingScreen extends javax.swing.JFrame {
             for (int i = 0; i <= 100; i += 3) {
                 Thread.sleep(70);
                 loading.jpbLoading.setValue(i);
-                loading.lblLoading.setText(Integer.toString(i) + "%");
+                //loading.lblLoading.setText(Integer.toString(i) + "%");
             }
             loading.dispose();
 
