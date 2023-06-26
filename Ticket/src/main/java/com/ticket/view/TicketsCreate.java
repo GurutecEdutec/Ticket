@@ -84,7 +84,7 @@ public class TicketsCreate extends javax.swing.JFrame {
             }
         });
 
-        jcbCargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "Diretor(a)", "Vice-diretor(a)", "OP", "Professor(a)" }));
+        jcbCargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "Diretor(a)", "Vice-diretor(a)", "Secretário(a)", "Auxiliar de Administração", "Orientador(a) Pedagógico" }));
 
         btnReset.setText("RESETAR");
         btnReset.addActionListener(new java.awt.event.ActionListener() {
@@ -148,15 +148,15 @@ public class TicketsCreate extends javax.swing.JFrame {
                                             .addComponent(jLabel3)
                                             .addComponent(jLabel1))))
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jcbCargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jcbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnTeste)))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jcbCargo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnTeste)
+                                    .addComponent(jcbTipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addComponent(jLabel5)
                             .addComponent(jLabel7)
                             .addComponent(jLabel8))
                         .addGap(55, 55, 55)))
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

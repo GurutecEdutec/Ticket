@@ -132,10 +132,10 @@
                                               </Group>
                                           </Group>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jcbCargo" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jcbTipo" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="jcbCargo" alignment="0" max="32767" attributes="0"/>
                                               <Component id="btnTeste" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jcbTipo" alignment="0" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -145,7 +145,7 @@
                                   <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="87" max="32767" attributes="0"/>
+                          <EmptySpace pref="42" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -251,12 +251,13 @@
                 <Component class="javax.swing.JComboBox" name="jcbCargo">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="5">
+                      <StringArray count="6">
                         <StringItem index="0" value="Selecionar"/>
                         <StringItem index="1" value="Diretor(a)"/>
                         <StringItem index="2" value="Vice-diretor(a)"/>
-                        <StringItem index="3" value="OP"/>
-                        <StringItem index="4" value="Professor(a)"/>
+                        <StringItem index="3" value="Secret&#xe1;rio(a)"/>
+                        <StringItem index="4" value="Auxiliar de Administra&#xe7;&#xe3;o"/>
+                        <StringItem index="5" value="Orientador(a) Pedag&#xf3;gico"/>
                       </StringArray>
                     </Property>
                   </Properties>
